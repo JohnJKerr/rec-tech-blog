@@ -51,13 +51,108 @@ const { Content } = await entry.render();
       <div class="mx-8 prose prose-lg max-w-full">
         <Content />
       </div>
-      <div class="text-center mt-8">
-        <a
-          href="/posts"
-          class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-          >← Back to Posts</a
-        >
+    </div>
+    <div
+      class="p-9 mt-8 rounded-xl bg-gradient-to-r from-blue-700 via-blue-800 to-purple-800 text-center text-white">
+      <h1 class="text-4xl font-bold lg:tracking-tight lg:leading-tight">
+        Skip the Integration Nightmare?
+      </h1>
+      <div class="max-w-3/4 mx-auto mt-4">
+        <aside class="text-xl">
+          We're looking to build the solution that handles all of the headaches.
+          All your Rec-Tech APIs with consistent modelling, state-change
+          detection, and events.
+        </aside>
+        <div class="bg-white/25 rounded-md mt-6 p-4">
+          <h2 class="text-2xl font-bold text-center mb-8">What you get:</h2>
+          <ul
+            class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto list-none">
+            <li class="flex items-center space-x-3">
+              <svg
+                class="w-6 h-6 text-green-400 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-lg font-medium"
+                >Help us choose our first Rec-Tech APIs</span
+              >
+            </li>
+
+            <li class="flex items-center space-x-3">
+              <svg
+                class="w-6 h-6 text-green-400 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-lg font-medium"
+                >Data modelled around your needs</span
+              >
+            </li>
+
+            <li class="flex items-center space-x-3">
+              <svg
+                class="w-6 h-6 text-green-400 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-lg font-medium"
+                >Your features as a priority</span
+              >
+            </li>
+
+            <li class="flex items-center space-x-3">
+              <svg
+                class="w-6 h-6 text-green-400 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-lg font-medium"
+                >Grandfather pricing, forever</span
+              >
+            </li>
+          </ul>
+        </div>
+        <form class="mt-6">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            class="bg-white rounded-md p-3 text-slate-900"
+          />
+          <button
+            type="submit"
+            class="bg-white rounded-md p-3 text-purple-800 mx-4 px-8"
+            >Join Waitlist</button
+          >
+        </form>
       </div>
     </div>
+
+    <hr class="mt-8 border-b-slate-500" />
+
+    <a href="/posts" class="mt-8 block">← Back to all posts</a>
   </Container>
 </Layout>
