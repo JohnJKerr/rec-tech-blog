@@ -26,5 +26,6 @@
     "astro-seo": "^0.8.4",
     "sharp": "^0.33.5",
     "tailwindcss": "^4.0.14"
-  }
+  },
+  "packageManager": "pnpm@8.7.5+sha1.735d4d0e6fc66c4d2d64b269b08e5995b19230ca"
 }
