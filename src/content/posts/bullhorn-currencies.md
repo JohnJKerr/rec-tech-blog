@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Bullhorn, financial data and currencies"
 snippet: "How do you get financial data from a system that is currency agnostic?"
 image: {
