@@ -160,6 +160,7 @@ const { Content } = await entry.render();
               fetch("https://wishlists.developkerr.com/wishlists", {
                 method: "POST",
                 body: JSON.stringify(formData.get("email")),
+                headers: { "Content-Type": "application/json; charset=UTF-8" },
               });
             };
           }
