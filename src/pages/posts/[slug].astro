@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import Container from "@/components/container.astro";
 
-// Generate a new path for every collection entry
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
   return blogEntries.map((entry) => ({
@@ -136,11 +135,13 @@ const { Content } = await entry.render();
             </li>
           </ul>
         </div>
-        <form class="mt-6">
+        <form class="mt-6" method="post" id="wishlist-form">
           <input
+            name="email"
             type="email"
             placeholder="Enter your email"
             class="bg-white rounded-md p-3 text-slate-900"
+            required
           />
           <button
             type="submit"
@@ -148,6 +149,21 @@ const { Content } = await entry.render();
             >Join Waitlist</button
           >
         </form>
+        <script>
+          const form = document.getElementById(
+            "wishlist-form"
+          ) as HTMLFormElement;
+          if (form) {
+            form.onsubmit = (e) => {
+              e.preventDefault();
+              var formData = new FormData(form);
+              fetch("https://wishlists.developkerr.com/wishlists", {
+                method: "POST",
+                body: JSON.stringify(formData.get("email")),
+              });
+            };
+          }
+        </script>
       </div>
     </div>
 
