@@ -57,9 +57,9 @@ This will return a page of 200 placements and all the custom text fields for eac
 Now, _IF_ you are lucky all the clients for your awesome new recruitment platform 
 will use ISO currency codes. However, we have seen the following variations:
 
-- `"pound"`
-- `"£"`
-- `"£ pound"`
+- "pound"
+- "£"
+- "£ pound"
 
 And many other variations across different currencies.
 
