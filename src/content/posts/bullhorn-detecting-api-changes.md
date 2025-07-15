@@ -1,6 +1,6 @@
 ---
-draft: true
-title: "Keeping your system in sync: Bullhorn API change detection"
+draft: false
+title: "Keeping your state in sync: Bullhorn API Placement change detection"
 snippet: "Your systems need to know what's changed on your Bullhorn integration. How to go about it?"
 image:
   {
@@ -20,11 +20,11 @@ One of the first problems you're going to run into: how do I know when I need to
 
 At a glance, not a particularly hard problem - but with each non-standardised API you need to integrate with: <a href="https://english.stackexchange.com/questions/37086/what-is-the-meaning-of-the-phrase-here-be-dragons" target="_blank">_hic sunt dracones_</a>.
 
-Fortunately Bullhorn is among the better rec-tech APIs, so let's get started.
+Fortunately Bullhorn is among the better rec-tech APIs when it comes to change, so let's get started.
 
 ## Step 1: Your Systems
 
-You will have certain things you care about depending on what you're building, but you will definitely care about these benefits of using a **unified model**:
+You will have various concerns depending on what you're building, but you will definitely care about these benefits of using a **unified model**:
 
 - ✅ **Reduced Coupling and Vendor Lock-in:**
 
@@ -40,3 +40,39 @@ You will have certain things you care about depending on what you're building, b
 - ✅ **Future-Proofing:**
   - As APIs evolve or new ones are added, your internal model serves as a stable contract for your application.
   - As your application evolves, it can move separately to the integration concerns in the mapping layer.
+
+Let's keep things simple for now, and we'll go into more detail in future posts.
+You might have a model for a placement in your system that looks a little bit like this:
+
+```csharp
+public class Placement
+{
+  public Guid Id { get; private set; }
+  public DateOnly StartDate { get; private set; }
+  public Amount Fee { get; private set; } = new Amount("GBP", 0);
+
+  public record Amount(string Currency, decimal Value);
+
+  public void SetFee(Amount amount)
+  {
+      Fee = amount;
+  }
+
+  public void SetStartDate(DateOnly date)
+  {
+      StartDate = date;
+  }
+}
+```
+
+To keep your internal Placements in the same state as those on Bullhorn you will need to know when the last time you looked at Bullhorn was:
+
+```csharp
+public class BullhornIntegration
+{
+  public Guid Id { get; private set; }
+  public DateTime LastExecutedAt { get; private set; }
+}
+```
+
+We've now defined what state we need for our systems, and we've defined where we can track when the last time we executed our integration was. Onward!
