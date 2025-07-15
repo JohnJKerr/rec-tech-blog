@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: "Keeping your state in sync: Bullhorn API Placement change detection"
 snippet: "Your systems need to know what's changed on your Bullhorn integration. How to go about it?"
 image:
