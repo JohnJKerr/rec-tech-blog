@@ -10,7 +10,7 @@ image:
 publishDate: "2025-07-10 21:30"
 category: "bullhorn"
 author: "John Kerr"
-tags: [bullhorn, finance, tutorial]
+tags: [bullhorn, bullhorn-one, finance, tutorial]
 ---
 
 So, you've been tasked with creating a Bullhorn integration, and you need
