@@ -29,3 +29,13 @@ If you already have a Bullhorn integration, then I have good news for you as you
 same authentication mechanisms, so you won't need to reinvent the wheel there. If not, then stay tuned for our future 
 post on authenticating with Bullhorn.
 
+Onto the Bullhorn One specifics. There are a LOT of endpoints! 😅 Fortunately, you can identify most of them by 
+the "Pay and Bill" prefix that Bullhorn applies. For the purposes of this blog, we'll assume you're looking to get 
+billing data out of Bullhorn One.
+
+The first place you are likely to look is the 
+[timesheets](https://bullhorn.github.io/rest-api-docs/entityref.html#timesheet) endpoint - as it happens an example 
+of an endpoint without the "Pay and Bill" prefix. While you can potentially get _some_ useful data from there, such 
+as hours worked, from a revenue perspective that endpoint is largely useless.
+
+Instead, you want to be looking at 
