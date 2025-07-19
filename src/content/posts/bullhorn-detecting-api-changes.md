@@ -47,7 +47,7 @@ You might have a model for a placement in your system that looks a little bit li
 ```csharp
 public class Placement
 {
-  public Guid Id { get; private set; }
+  public string SourceId { get; private set; }
   public DateOnly StartDate { get; private set; }
   public Amount Fee { get; private set; } = new Amount("GBP", 0);
 
@@ -76,3 +76,41 @@ public class BullhornIntegration
 ```
 
 We've now defined what state we need for our systems, and we've defined where we can track when the last time we executed our integration was. Onward!
+
+## Step 2: Getting the data
+
+We need to query the placements collection to get our data. Here's what your query might look like:
+
+```
+GET {your-bullhorn-url}/query/Placement?count=200&start=0&fields=id,customText22,dateBegin,dateLastModified,flatFee
+```
+
+You're probably very familiar with this, but if not, things to note here are:
+
+- ✅ **Include the fields you need:**
+
+  - The `fields` section of the querystring tells Bullhorn which fields you'd like include on your placements.
+  - `dateBegin` will be our `StartDate`
+  - `flatFee` will contain our fee
+  - `customText22` will contain our currency here. Problems with currencies? Check our <a href="/posts/bullhorn-currencies">other post</a> on this!
+  - `dateLastModified` will let us work our magic...
+
+- ✅ **The structure of the data:**
+  - Your json response will have this structure:
+    ```json
+    {
+      "id": 156626,
+      "flatFee": 13200.0,
+      "dateBegin": 1753675200000,
+      "dateLastModified": 1752187762203,
+      "customText22": "USD"
+    }
+    ```
+  - Dates are returned in Unix timestamp format, and you'll need to convert them to your desired format. In our case (C#) we can use: `DateTime.UnixEpoch.AddMilliseconds(1753675200000)`
+
+From this we can populate our unified model, but how can we best update our models when Bullhorn changes? Step 3!
+
+## Step 2: Change is coming...
+
+Too soon?
+![alt text](change-is-coming.png)
