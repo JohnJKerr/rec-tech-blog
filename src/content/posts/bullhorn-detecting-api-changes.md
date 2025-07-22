@@ -112,5 +112,25 @@ From this we can populate our unified model, but how can we best update our mode
 
 ## Step 2: Change is coming...
 
-Too soon?
+Too soon (still)?
 ![alt text](change-is-coming.png)
+
+When things change on Bullhorn you want to update your systems? Earlier we defined `LastExecutedAt` on our integration. We can use that to filter our query to only include placements that were last modified after the last time we executed the integration.
+
+```http
+GET {your-bullhorn-url}/query/Placement?count=200&start=0&where=dateLastModified > {your-last-executed-date}&fields=id,customText22,dateBegin,dateLastModified,flatFee
+```
+
+As always when using the Bullhorn API you'll need to convert to Unix timestamps for dates. In C# we could do this like so:
+
+```csharp
+var unitTimeMilliseconds = new DateTimeOffset(integration.LastExecutedAt).ToUnixTimeMilliseconds();
+```
+
+You're left at this point to update your unified models, with whatever you're interested in that may have changed.
+
+Last of all - make sure you update the `LastExecutedAt` date on your integration to this execution.
+
+Of course, this says nothing of managing your own codebase, infrastructure, correctness and keeping all of this backwards compatible...
+
+### Hic sunt dracones 🐉!
