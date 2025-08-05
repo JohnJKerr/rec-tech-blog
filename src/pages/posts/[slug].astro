@@ -157,7 +157,7 @@ const { Content } = await entry.render();
             form.onsubmit = (e) => {
               e.preventDefault();
               const formData = new FormData(form);
-              fetch("https://wishlists.developkerr.com/wishlists", {
+              fetch("https://wishlists.recruitmentstack.com/wishlists", {
                 method: "POST",
                 body: JSON.stringify(formData.get("email")),
                 headers: { "Content-Type": "application/json; charset=UTF-8" },
