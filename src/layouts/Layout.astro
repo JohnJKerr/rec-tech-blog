@@ -20,8 +20,8 @@ const resolvedImageWithDomain = new URL(
 const { title } = Astro.props;
 
 const makeTitle = title
-  ? title + " | " + "RecTechConnect"
-  : "RecTechConnect | Connecting recruitment systems";
+  ? title + " | " + "RecruitmentStack"
+  : "RecruitmentStack | Connecting recruitment systems";
 ---
 
 <!doctype html>
@@ -50,7 +50,7 @@ const makeTitle = title
   <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
   <SEO
     title={makeTitle}
-    description="Connect recruitment systems with RecTechConnect"
+    description="Connect recruitment systems with RecruitmentStack"
     canonical={canonicalURL}
     twitter={{
       creator: "@surjithctly",
@@ -61,7 +61,7 @@ const makeTitle = title
       basic: {
         url: canonicalURL,
         type: "website",
-        title: `RecTechConnect - Connecting recruitment systems`,
+        title: `RecruitmentStack - Connecting recruitment systems`,
         image: resolvedImageWithDomain
       },
       image: {
